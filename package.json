@@ -1,0 +1,10 @@
+{
+  "name": "google_watch_server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "restify": "^11.0.0"
+  }
+}
