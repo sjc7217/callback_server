@@ -1,4 +1,5 @@
 import restify from 'restify';
+import fs from 'fs';
 
 function googlerespond(req, res, next) {
   console.log(req.body);
@@ -7,7 +8,11 @@ function googlerespond(req, res, next) {
 }
 
 
-var server = restify.createServer();
+var server = restify.createServer({
+  certificate: fs.readFileSync('./cert.pem'),
+  key: fs.readFileSync('./key.pem'),
+  passphrase: 'qwerty'
+});
 
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.bodyParser());
